@@ -1,0 +1,31 @@
+let person1 = {
+name: "Peace",
+faculty: "School of Engineering",
+track: "AI-Powered Full Stack Development",
+}
+
+let person2 = {
+name: "Peace",
+faculty: "School of Engineering",
+track: "AI-Powered Full Stack Development",
+}
+
+function deepEqual(person1, person2) {
+    if (person1 === person2) return true;
+
+    if (person1 == null || person2 == null) return false;
+
+    if (typeof person1 !== typeof person2) return false;
+
+    let keys1 = Object.keys(person1);
+    let keys2 = Object.keys(person2);
+
+    if (keys1.length !== keys2.length) return false;
+
+    for (let key of keys1) {
+        if (!keys2.includes(key)) return false;
+        if (!deepEqual(person1[key], person2[key])) return false;
+    }
+
+    return true;
+}
