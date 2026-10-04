@@ -37,5 +37,5 @@ function deepEqual(person1, person2) {
 }
 
 console.log(deepEqual(person1, person2)); // true
-console.log(deepEqual(person1, person3); // false
-console.log(deepEqual({ a: 1 }, { a: 1, b: 2 })); // false
+console.log(deepEqual(person1, person3)); // false
+console.log(deepEqual(person2, person3)); // false
