@@ -1,0 +1,22 @@
+function deepFreeze(obj) {
+  // Retrieve the property names defined on obj
+  const propNames = Object.getOwnPropertyNames(obj);
+
+  // Freeze the object
+  Object.freeze(obj);
+
+  // Recursively freeze each property that is an object
+  for (let i = 0; i < propNames.length; i++) {
+    if (typeof obj[propNames[i]] === "object" && obj[propNames[i]] !== null) {
+      deepFreeze(obj[propNames[i]]);
+    }
+  }
+
+  return obj;
+}
+
+const config = deepFreeze({ api: { baseUrl: 'https://x.com', retries: 3 }, debug: false })
+config.api.baseUrl = 'https://changed.com' // should be ignored
+config.debug = true                        // should be ignored
+console.log(config.api.baseUrl, config.debug) // "https://x.com" false
+console.log(Object.isFrozen(config.api))       // true
