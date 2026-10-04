@@ -10,6 +10,12 @@ faculty: "School of Engineering",
 track: "AI-Powered Full Stack Development",
 }
 
+let person3 = {
+name: "Peace",
+faculty: "School of Engineering",
+track: "Cybersecurity",
+}
+
 function deepEqual(person1, person2) {
     if (person1 === person2) return true;
 
@@ -29,3 +35,7 @@ function deepEqual(person1, person2) {
 
     return true;
 }
+
+console.log(deepEqual(person1, person2)); // true
+console.log(deepEqual(person1, person3); // false
+console.log(deepEqual({ a: 1 }, { a: 1, b: 2 })); // false
